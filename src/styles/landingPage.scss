@@ -1,15 +1,22 @@
-.container15{
-    background-image: url("https://unblast.com/wp-content/uploads/2020/05/Light-Wood-Background-Texture-5.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+.home-container{
+  background-image: url("https://unblast.com/wp-content/uploads/2020/05/Light-Wood-Background-Texture-5.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  & .header h1 {
+    margin: 25px auto;
+  }
+
+  & .carousel-container {
+    width: auto;
+  }
 }
 
 .carousel-item {
   width: 640px;
-  height:360px;
+  height: auto;
+
+  & img {
+    border-radius: 20px;
+  }
 }
-
-
-
-// https://img.freepik.com/free-photo/old-barn-wall-wood-background_1101-2483.jpg?size=626&ext=jpg
-
