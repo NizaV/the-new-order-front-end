@@ -3,13 +3,13 @@ import "../../styles/landingPage.scss";
 
 export const LandingPage = () => {
 	return (
-		<div className="container15 fluid d-flex flex-column" style={{ height: "100%" }}>
+		<div className="home-container fluid d-flex flex-column" style={{ height: "100%" }}>
 			<div className="header text-center ">
 				<h1>Welcome to The New Order</h1>
 			</div>
 			<div className="motto" />
 			<div className="row d-flex justify-content-md-center pb-5">
-				<div className="col-md-7 ">
+				<div className="carousel-container">
 					<div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
 						<div className="carousel-inner ">
 							<div className="carousel-item active ">
