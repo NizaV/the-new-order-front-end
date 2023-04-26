@@ -1,3 +1,39 @@
+.page-container {
+    height: 100vh;
+    width: 100%;
+}
+
+.nav-inner {
+    height: 50px;
+    padding: 0 30px;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+.nav-search {
+    display: flex;
+    width: 38%;
+    max-width: 400px;
+    justify-content: space-between;
+
+    & .search-input {
+        max-width: 300px;
+    }
+}
+
+.map-google {
+    width: 95%;
+    height: inherit;
+    margin: 25px auto;
+}
+
+.lead .btn,
+.nav-search .btn {
+    color: #ffffff;
+    background-color: #f01f2c;
+    border: 1px #ffffff solid;
+}
+
 .fas{
     font-size: 25px;
 }

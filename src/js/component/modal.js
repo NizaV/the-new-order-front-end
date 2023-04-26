@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import PropTypes from "prop-types";
 
@@ -69,7 +69,7 @@ export const Modal = props => {
 							type="button"
 							onClick={e => {
 								actions.login(email, password);
-								history.push("/admin-main-menu");
+								history("/admin-main-menu");
 							}}
 							className="btn btn-primary">
 							Login

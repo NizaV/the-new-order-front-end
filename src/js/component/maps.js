@@ -4,12 +4,34 @@ import GoogleMapReact from "google-map-react";
 import { useHistory, Link } from "react-router-dom";
 import "../../styles/maps.scss";
 import { Context } from "../store/appContext";
+import { MapsHeader } from "./maps-header";
 
 const center = {
 	lat: 25.7617,
 	lng: -80.1918
 };
 const zoom = 14;
+
+const AnyMarkers = () => {
+	const { store } = useContext(Context);
+	const history = useHistory();
+
+	return store.vendor_locations.map((vendor_location, index) => {
+		return (
+			<div
+				key={index}
+				className=" fas fa-map-marker-alt text-danger "
+				style={{ height: "40px", width: "40px" }}
+				title={vendor_location.name}
+				data-tooltip={vendor_location.name}
+				data-lat={vendor_location.lat}
+				data-lng={vendor_location.lng}
+				// text={vendor_location.name}
+				onClick={e => history.push(`/user-main-menu/${vendor_location.vendor_id}`)}
+			/>
+		);
+	});
+};
 
 export const Maps = props => {
 	const history = useHistory();
@@ -20,41 +42,8 @@ export const Maps = props => {
 	};
 	// {store.vendor_locations.map((vendor_location, index) => {
 	return (
-		<div className="container-fluid d-flex flex-column" style={{ height: "100vh", width: "100%" }}>
-			<div className="jumbotron8 image mb-3">
-				<h1 className="shadow2 display-4 text-center text-white">{"Find Your Craving Here"}</h1>
-				<p className="shadow2 lead text-center text-white">
-					<strong>{"Chefs don't make mistakes; they make new dishes"}</strong>
-				</p>
-				<div className="d-flex flex-row">
-					<form className="form-inline my-2 my-lg-0">
-						<input
-							className="form-control mr-sm-2"
-							type="search"
-							placeholder="Find a Vendor"
-							aria-label="Search"
-							value={searchName}
-							onChange={handleChange}
-							// onClick={e => history.push(`/user-main-menu/${vendor_location.vendor_id}`)}
-						/>
-						<button
-							className="btn btn-success my-2 my-sm-0"
-							type="button"
-							onClick={e => actions.getResults(searchName)}>
-							Search
-						</button>
-					</form>
-					<div className="ml-auto">
-						<Link to="/">
-							<p className="lead">
-								<a className="btn btn-dark text-white btn-lg" href="#" role="button">
-									{"Home"}
-								</a>
-							</p>
-						</Link>
-					</div>
-				</div>
-			</div>
+		<div className="page-container d-flex flex-column">
+			<MapsHeader />
 			{store.searchResults != null ? (
 				<div className="card" style={{ width: "18rem" }}>
 					<ul className="list-group list-group-flush">
@@ -76,28 +65,16 @@ export const Maps = props => {
 					</ul>
 				</div>
 			) : (
-				<GoogleMapReact
-					bootstrapURLKeys={{
-						key: "AIzaSyD9TcEj0Qk8yov_y_BdZTYv3SG9-3NMQAI"
-					}}
-					defaultCenter={center}
-					defaultZoom={zoom}>
-					{store.vendor_locations.map((vendor_location, index) => {
-						return (
-							<div
-								key={index}
-								className=" fas fa-map-marker-alt text-danger "
-								style={{ height: "40px", width: "40px" }}
-								title={vendor_location.name}
-								tooltip={vendor_location.name}
-								lat={vendor_location.lat}
-								lng={vendor_location.lng}
-								text={vendor_location.name}
-								onClick={e => history.push(`/user-main-menu/${vendor_location.vendor_id}`)}
-							/>
-						);
-					})}
-				</GoogleMapReact>
+				<div className="map-google" style={{ height: "100vh", width: "100%" }}>
+					<GoogleMapReact
+						bootstrapURLKeys={{
+							key: "AIzaSyD9TcEj0Qk8yov_y_BdZTYv3SG9-3NMQAI"
+						}}
+						defaultCenter={center}
+						defaultZoom={zoom}>
+						<AnyMarkers />
+					</GoogleMapReact>
+				</div>
 			)}
 		</div>
 	);

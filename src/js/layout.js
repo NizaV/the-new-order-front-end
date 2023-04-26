@@ -2,9 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 import { SignUp } from "./views/signUp";
 import { AdminMainMenu } from "./component/adminMainMenu";
@@ -32,10 +29,12 @@ export const Layout = () => {
 					<Switch>
 						<Route exact path="/signUp" component={SignUp} />
 						<Route exact path="/">
-							<Navbar />
-							<LandingPage />
+							<div>
+								<Navbar />
+								<LandingPage />
+							</div>
 						</Route>
-						{<Route exact path="/maps" component={Maps} />}
+						<Route exact path="/maps" component={Maps} />
 						<Route exact path="/admin-main-menu" component={AdminMainMenu} />
 						<Route exact path="/user-main-menu/:bubu" component={UserMainMenu} />
 						<Route exact path="/item-add-edit" component={ItemAddEdit} />

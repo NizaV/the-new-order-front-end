@@ -11,7 +11,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			vendor_locations: [
 				{
 					vendor_id: 1,
-					name: "Bob's Fish Shack",
+					name: "Hot Toddy",
 					lat: 25.7617,
 					lng: -80.1918
 				},
@@ -54,7 +54,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					orders: [],
 					phone: "1234567895",
 					products: [],
-					vendor_name: "hot toddy"
+					vendor_name: "Hot Toddy"
 				},
 				{
 					email: "juicy@gmail.com",
@@ -281,7 +281,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ currentVendor: data }));
 			},
 			updateProduct: item => {
-				console.log("ITTTTT: ", item);
+				// console.log("ITTTTT: ", item);
 				const store = getStore();
 				fetch(backendApiUrl + "menu-items/" + item.id, {
 					method: "PUT",
@@ -304,7 +304,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			deleteProduct: async item_id => {
-				console.log("ITTTTT: ", item_id);
+				// console.log("ITTTTT: ", item_id);
 				const store = getStore();
 				let response = await fetch(backendApiUrl + "menu-items/" + item_id, {
 					method: "DELETE",
@@ -378,7 +378,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				);
 			},
 			login: (email, password) => {
-				console.log("Hello");
+				// console.log("Hello");
 				fetch(`${backendApiUrl}login`, {
 					method: "POST",
 					headers: {
