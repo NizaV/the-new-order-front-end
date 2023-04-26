@@ -51,7 +51,7 @@ export const UserMainMenu = props => {
 					...orderItem,
 					quantity: orderItem.quantity + 1
 				});
-				console.log("finalCart", finalCart);
+				// console.log("finalCart", finalCart);
 			} else {
 				finalCart.push(orderItem);
 			}
@@ -60,12 +60,9 @@ export const UserMainMenu = props => {
 		tallyUpSub(product);
 	};
 
-	useEffect(
-		() => {
-			cartItemsTotal();
-		},
-		[cart]
-	);
+	useEffect(() => {
+		cartItemsTotal();
+	}, [cart]);
 
 	const cartItemsTotal = () => {
 		let totalCartItems = 0;
@@ -73,14 +70,14 @@ export const UserMainMenu = props => {
 			totalCartItems += cart[i].quantity;
 		}
 		setCartTotal(totalCartItems);
-		console.log(totalCartItems);
+		// console.log(totalCartItems);
 	};
 
 	const addToCart = product => {
 		for (let item of cart) {
-			console.log(`checking for id ${product.id} as ${product.name} versus ${item.product_id} as ${item.name}`);
+			// console.log(`checking for id ${product.id} as ${product.name} versus ${item.product_id} as ${item.name}`);
 			if (item.product_id == product.id) {
-				console.log(`found in cart... aborting`);
+				// console.log(`found in cart... aborting`);
 				return false;
 			}
 		}

@@ -1,16 +1,17 @@
-.navbar{
+.navbar {
     background-image: url("https://lovefoodhatewaste.ca/wp-content/uploads/2018/06/FoodBackground.jpg");
-    // background-image: url("https://img.freepik.com/free-photo/old-barn-wall-wood-background_1101-2483.jpg?size=626&ext=jpg");
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-// https://lh3.googleusercontent.com/proxy/4lMEtn6H3-TvrK4HRpKiP2UomSBlPv3MUpkAHhsj5bSoA5bY8QOu1emkJ0rn4svo-dgPRCfnoY2xUyMeahWInHX0siawP7415f4btyH-9vHyt4z8GUhRSnUlkLbs4oboDGuKguQlUfR4Z8ds0XQh
-
-.navbar-brand{
-    text-shadow: 1px 1px black;
-}
-
-// .nav-item{
-//     text-shadow: 2px 2px black;
-// }
+    padding: 20px 30px;
+    border-bottom: 1px black solid;
+  
+    &-brand {
+      font-size: 24px;
+      text-shadow: 1px 1px black;
+    }
+  
+    & #navbarNavDropdown {
+      margin-left: 20px;
+    }
+  }
+  
